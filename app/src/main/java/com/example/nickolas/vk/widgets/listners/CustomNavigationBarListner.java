@@ -7,7 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
 import com.example.nickolas.vk.R;
-import com.example.nickolas.vk.fragments.DialogMessage;
+import com.example.nickolas.vk.fragments.DialogFragment;
 import com.example.nickolas.vk.fragments.FeedFragment;
 import com.example.nickolas.vk.fragments.MusicFragment;
 
@@ -18,14 +18,14 @@ public class CustomNavigationBarListner implements BottomNavigationView.OnNaviga
     private Activity activity;
     private FeedFragment feedFragment;
     private MusicFragment musicFragment;
-    private DialogMessage dialogMessage;
+    private DialogFragment dialogFragment;
     int id;
 
-    public CustomNavigationBarListner(Activity activity, FeedFragment feedFragment, MusicFragment musicFragment, DialogMessage dialogMessage, int id) {
+    public CustomNavigationBarListner(Activity activity, FeedFragment feedFragment, MusicFragment musicFragment, DialogFragment dialogFragment, int id) {
         this.activity = activity;
         this.feedFragment = feedFragment;
         this.musicFragment = musicFragment;
-        this.dialogMessage = dialogMessage;
+        this.dialogFragment = dialogFragment;
         this.id = id;
     }
 
@@ -43,7 +43,7 @@ public class CustomNavigationBarListner implements BottomNavigationView.OnNaviga
                 fragT.commit();
                 return true;
             case R.id.navigation_messages:
-                fragT.replace(id, dialogMessage);
+                fragT.replace(id, dialogFragment);
                 fragT.commit();
                 return true;
         }

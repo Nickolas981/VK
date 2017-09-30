@@ -18,9 +18,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0)
-            return new MainFragment();
+            return MainFragment.newInstance();
         else if (position == 1)
-            return new MenuFragment();
+            return MenuFragment.newInstance();
         else
             return null;
     }
