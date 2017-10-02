@@ -3,12 +3,15 @@ package com.example.nickolas.vk;
 import android.app.Application;
 import android.widget.Toast;
 
+import com.example.nickolas.vk.di.component.AppComponent;
+import com.example.nickolas.vk.di.component.DaggerAppComponent;
+import com.example.nickolas.vk.di.module.ApiModule;
+import com.example.nickolas.vk.di.module.AppModule;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKAccessTokenTracker;
 import com.vk.sdk.VKSdk;
 
 public class App extends Application {
-
 
     VKAccessTokenTracker vkAccessTokenTracker = new VKAccessTokenTracker() {
         @Override
@@ -18,7 +21,20 @@ public class App extends Application {
             }
         }
     };
+    private AppComponent appComponent;
 
+    public App() {
+        super();
+
+        appComponent = DaggerAppComponent.builder()
+                .apiModule(new ApiModule())
+                .appModule(new AppModule(this))
+                .build();
+    }
+
+    public AppComponent appComponent() {
+        return appComponent;
+    }
 
     @Override
     public void onCreate() {

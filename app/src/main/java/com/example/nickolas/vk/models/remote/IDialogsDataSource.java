@@ -1,6 +1,7 @@
 package com.example.nickolas.vk.models.remote;
 
-import okhttp3.ResponseBody;
+import com.vk.sdk.api.VKResponse;
+
 import rx.Observable;
 
 /**
@@ -9,5 +10,5 @@ import rx.Observable;
 
 public interface IDialogsDataSource {
 
-    Observable<ResponseBody> getDialogs(int count, int offset);
+    Observable<VKResponse> getDialogs(int count, int offset, String tokken);
 }

@@ -20,7 +20,7 @@ import dagger.Component;
         ApiModule.class
 })
 
-public interface AppComponent {
+public interface AppComponent extends ApiComponent {
     Context context();
 
     SharedPreferences preferences();

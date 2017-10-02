@@ -1,13 +1,12 @@
 package com.example.nickolas.vk.api;
 
+import com.vk.sdk.api.VKResponse;
+
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
-/**
- * Created by Nickolas on 01.10.2017.
- */
 
 public interface VkApi {
 
@@ -17,8 +16,9 @@ public interface VkApi {
             , @Query("count") int count);
 
 
-    @GET("messages.GetDialogs")
-    Observable<ResponseBody> getDialogs(@Query("offset") int offset
-    , @Query("count") int count);
+    @GET("messages.getDialogs")
+    Observable<VKResponse> getDialogs(@Query("count") int count
+            , @Query("offset") int offset
+            , @Query("access_token") String tokken);
 
 }

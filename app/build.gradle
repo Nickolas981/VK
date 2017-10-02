@@ -70,4 +70,6 @@ dependencies {
 
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
 
+    // Circle photo view
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }
