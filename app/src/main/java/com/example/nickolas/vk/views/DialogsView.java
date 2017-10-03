@@ -1,11 +1,11 @@
 package com.example.nickolas.vk.views;
 
-import com.vk.sdk.api.model.VKApiDialog;
+import com.example.nickolas.vk.models.enteties.Dialog;
 
 import java.util.List;
 
 public interface DialogsView extends BaseView {
 
-    void showDialogs(List<VKApiDialog> dialogs);
+    void showDialogs(List<Dialog> dialogs);
 
 }

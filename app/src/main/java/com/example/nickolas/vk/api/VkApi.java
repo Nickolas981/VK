@@ -1,7 +1,5 @@
 package com.example.nickolas.vk.api;
 
-import com.vk.sdk.api.VKResponse;
-
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -17,7 +15,7 @@ public interface VkApi {
 
 
     @GET("messages.getDialogs")
-    Observable<VKResponse> getDialogs(@Query("count") int count
+    Observable<ResponseBody> getDialogs(@Query("count") int count
             , @Query("offset") int offset
             , @Query("access_token") String tokken);
 

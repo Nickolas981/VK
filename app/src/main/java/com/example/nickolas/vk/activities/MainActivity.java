@@ -16,11 +16,10 @@ import com.vk.sdk.api.VKError;
 
 public class MainActivity extends AppCompatActivity {
 
-    VerticalViewPager verticalViewPager;
     private static final String[] scope = new String[]{
             VKScope.AUDIO, VKScope.MESSAGES, VKScope.WALL, VKScope.FRIENDS
     };
-
+    VerticalViewPager verticalViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
         verticalViewPager = (VerticalViewPager) findViewById(R.id.view_pager);
         verticalViewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
-        if  (!VKSdk.isLoggedIn()){
-            VKSdk.login(this);
-        }
+//        if  (!VKSdk.isLoggedIn()){
+        VKSdk.login(this, scope);
+//        }
     }
 
     @Override

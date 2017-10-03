@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.nickolas.vk.R;
-import com.vk.sdk.api.model.VKApiDialog;
+import com.example.nickolas.vk.models.enteties.Dialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class DialogListAdapter extends RecyclerView.Adapter<DialogListAdapter.ViewHolder> {
 
     private Context context;
-    private List<VKApiDialog> dialogs;
+    private List<Dialog> dialogs;
 
     public DialogListAdapter(Context context) {
         dialogs = new ArrayList<>();
@@ -36,7 +36,7 @@ public class DialogListAdapter extends RecyclerView.Adapter<DialogListAdapter.Vi
         return vh;
     }
 
-    public void addDialogs(List<VKApiDialog> dialogs) {
+    public void addDialogs(List<Dialog> dialogs) {
         if (dialogs != null) this.dialogs.addAll(dialogs);
     }
 
@@ -47,7 +47,7 @@ public class DialogListAdapter extends RecyclerView.Adapter<DialogListAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return dialogs.size();
+        return 20;
     }
 
 

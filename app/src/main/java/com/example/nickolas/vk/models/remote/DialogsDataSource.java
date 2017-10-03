@@ -1,8 +1,8 @@
 package com.example.nickolas.vk.models.remote;
 
 import com.example.nickolas.vk.api.VkApi;
-import com.vk.sdk.api.VKResponse;
 
+import okhttp3.ResponseBody;
 import rx.Observable;
 
 /**
@@ -18,7 +18,7 @@ public class DialogsDataSource implements IDialogsDataSource {
     }
 
     @Override
-    public Observable<VKResponse> getDialogs(int count, int offset, String tokken) {
+    public Observable<ResponseBody> getDialogs(int count, int offset, String tokken) {
         return api.getDialogs(count, offset, tokken);
     }
 }

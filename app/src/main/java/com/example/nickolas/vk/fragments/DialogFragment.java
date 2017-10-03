@@ -16,15 +16,16 @@ import com.example.nickolas.vk.R;
 import com.example.nickolas.vk.di.component.AppComponent;
 import com.example.nickolas.vk.di.component.DaggerPresentersComponent;
 import com.example.nickolas.vk.di.module.PresentersModule;
+import com.example.nickolas.vk.models.enteties.Dialog;
 import com.example.nickolas.vk.presenters.DialogsPresenter;
 import com.example.nickolas.vk.views.DialogsView;
 import com.example.nickolas.vk.widgets.adapters.DialogListAdapter;
 import com.example.nickolas.vk.widgets.listners.EndlessRecyclerViewScrollListener;
+import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
 import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
-import com.vk.sdk.api.model.VKApiDialog;
 
 import java.util.List;
 
@@ -79,12 +80,12 @@ public class DialogFragment extends Fragment implements DialogsView {
         recyclerView.setAdapter(dialogListAdapter);
         final VKRequest request = VKApi.messages().getDialogs(VKParameters.from(VKApiConst.COUNT, 15));
         Toast.makeText(getActivity(), request.toString(), Toast.LENGTH_SHORT).show();
-//        presenter.getDialogs(count,  offset, VKSdk.getAccessToken().accessToken);
+        presenter.getDialogs(count, offset, VKSdk.getAccessToken().accessToken);
         return v;
     }
 
     @Override
-    public void showDialogs(List<VKApiDialog> dialogs) {
+    public void showDialogs(List<Dialog> dialogs) {
         dialogListAdapter.addDialogs(dialogs);
         dialogListAdapter.notifyDataSetChanged();
     }
