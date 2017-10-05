@@ -18,7 +18,7 @@ public class DialogsDataSource implements IDialogsDataSource {
     }
 
     @Override
-    public Observable<ResponseBody> getDialogs(int count, int offset, String tokken) {
-        return api.getDialogs(count, offset, tokken);
+    public Observable<ResponseBody> getDialogs(int offset, String token) {
+        return api.getDialogs(offset, token, "5.68");
     }
 }

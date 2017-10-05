@@ -9,5 +9,5 @@ import rx.Observable;
 
 public interface IDialogsDataSource {
 
-    Observable<ResponseBody> getDialogs(int count, int offset, String tokken);
+    Observable<ResponseBody> getDialogs(int offset, String tokken);
 }
