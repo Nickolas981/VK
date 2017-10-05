@@ -15,8 +15,8 @@ public interface VkApi {
 
 
     @GET("messages.getDialogs")
-    Observable<ResponseBody> getDialogs(@Query("count") int count
-            , @Query("offset") int offset
-            , @Query("access_token") String tokken);
+    Observable<ResponseBody> getDialogs(@Query("offset") int offset
+            , @Query("access_token") String token
+            , @Query("v") String version);
 
 }
