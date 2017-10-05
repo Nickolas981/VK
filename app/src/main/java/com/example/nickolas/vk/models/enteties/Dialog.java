@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Dialog {
+
     @SerializedName("unread")
     @Expose
     private Integer unread;
@@ -22,7 +23,7 @@ public class Dialog {
     private Integer outRead;
 
     public Integer getUnread() {
-        return unread;
+        return unread == null ? 0 : unread;
     }
 
     public void setUnread(Integer unread) {
@@ -52,4 +53,5 @@ public class Dialog {
     public void setOutRead(Integer outRead) {
         this.outRead = outRead;
     }
+
 }
