@@ -61,7 +61,7 @@ public class DialogFragment extends Fragment implements DialogsView {
                 .presentersModule(new PresentersModule())
                 .build()
                 .inject(this);
-        count = 10;
+        count = 20;
         offset = 0;
         presenter.setView(this);
     }
@@ -80,7 +80,7 @@ public class DialogFragment extends Fragment implements DialogsView {
         recyclerView.setAdapter(dialogListAdapter);
         final VKRequest request = VKApi.messages().getDialogs(VKParameters.from(VKApiConst.COUNT, 15));
         Toast.makeText(getActivity(), request.toString(), Toast.LENGTH_SHORT).show();
-        presenter.getDialogs(count, offset, VKSdk.getAccessToken().accessToken);
+        presenter.getDialogs(offset, VKSdk.getAccessToken().accessToken);
         return v;
     }
 

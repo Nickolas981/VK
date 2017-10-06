@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
         verticalViewPager = (VerticalViewPager) findViewById(R.id.view_pager);
         verticalViewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
-//        if  (!VKSdk.isLoggedIn()){
-        VKSdk.login(this, scope);
-//        }
+        if (!VKSdk.isLoggedIn()) {
+            VKSdk.login(this, scope);
+        }
     }
 
     @Override

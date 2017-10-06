@@ -17,9 +17,9 @@ import butterknife.ButterKnife;
 public class MainFragment extends Fragment {
 
 
-    private CustomNavigationBarListner listner;
     @BindView(R.id.bottom_navigation_view)
     BottomNavigationView navigationView;
+    private CustomNavigationBarListner listner;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
         navigationView.setOnNavigationItemSelectedListener(listner);
-        navigationView.setSelectedItemId(R.id.navigation_feed);
+        navigationView.setSelectedItemId(R.id.navigation_music);
         return view;
     }
 

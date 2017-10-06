@@ -1,12 +1,9 @@
 package com.example.nickolas.vk.presenters;
 
-import com.example.nickolas.vk.models.enteties.Dialog;
 import com.example.nickolas.vk.models.remote.IDialogsDataSource;
+import com.example.nickolas.vk.utils.ResposeToObjectUtil;
 import com.example.nickolas.vk.utils.rx.RxRetryWithDelay;
 import com.example.nickolas.vk.views.DialogsView;
-
-import java.io.IOException;
-import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -20,22 +17,27 @@ public class DialogsPresenter extends BasePresenter<DialogsView> {
         this.dialogsDataSource = dialogsDataSource;
     }
 
-    public void getDialogs(int limit, int offset, String tokken) {
+    public void getDialogs(int offset, String token) {
 
-        subscribe(dialogsDataSource.getDialogs(limit, offset, tokken)
+        subscribe(dialogsDataSource.getDialogs(offset, token)
                 .retryWhen(new RxRetryWithDelay())
-                .map(response -> {
-                    List<Dialog> list = null;
-
-//                    VKResponse response1 = response.string();
-
-                    try {
-                        System.out.println("sdasdsadasdasdasdasd" + response.string());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return list;
-                })
+                .map(ResposeToObjectUtil::parseToDialogList)
+//                .flatMap(dialogsDataSource::getUsersData, (dialogs, responseBody) -> {
+//
+//                })
+//                .flatMap(new Func1<List<Dialog> dialogs, Observable<? extends String>>() {
+//                    @Override
+//                    public Observable<? extends String> call(String responseFromServiceA) {
+//                        //make second request based on response from ServiceA
+//                        return dialogsDataSource.getUsersData(responseFromServiceA);
+//                    }
+//                }, new Func2<String, String, Observable<String>>() {
+//                    @Override
+//                    public Observable<String> call(String responseFromServiceA, String responseFromServiceB) {
+//                        //combine results
+//                        return Observable.just("here is combined result!");
+//                    }
+//                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getView()::showDialogs/*, new RxErrorAction(getView().getContext())*/));
