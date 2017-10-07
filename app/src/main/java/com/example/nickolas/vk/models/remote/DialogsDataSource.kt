@@ -10,8 +10,8 @@ import rx.Observable
 
 class DialogsDataSource(private val api: VkApi) : IDialogsDataSource {
 
-    override fun getDialogs(offset: Int, token: String): Observable<ResponseBody>
-            = api.getDialogs(offset, token)
+    override fun getDialogs(offset: Int): Observable<ResponseBody>
+            = api.getDialogs(offset)
 
     override fun getUsersData(dialogs: List<Dialog>): Observable<ResponseBody>
             = api.usersGet(GetIdsFrom.dialogList(dialogs))

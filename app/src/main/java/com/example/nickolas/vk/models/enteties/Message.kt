@@ -54,4 +54,5 @@ class Message {
     @SerializedName("photo_200")
     @Expose
     var photo200: String? = null
+    var user: User? = null
 }

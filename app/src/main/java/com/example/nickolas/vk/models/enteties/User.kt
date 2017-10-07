@@ -24,5 +24,6 @@ class User {
     @Expose
     var online: Int? = null
 
+    fun getFullName(): String = firstName + " " + lastName
 
 }

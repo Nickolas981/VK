@@ -11,7 +11,7 @@ import rx.Observable
 
 interface IDialogsDataSource {
 
-    fun getDialogs(offset: Int, token: String): Observable<ResponseBody>
+    fun getDialogs(offset: Int): Observable<ResponseBody>
     fun getUsersData(dialogs: List<Dialog>): Observable<ResponseBody>
 
 }

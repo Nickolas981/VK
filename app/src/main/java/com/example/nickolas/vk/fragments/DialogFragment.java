@@ -21,7 +21,6 @@ import com.example.nickolas.vk.presenters.DialogsPresenter;
 import com.example.nickolas.vk.views.DialogsView;
 import com.example.nickolas.vk.widgets.adapters.DialogListAdapter;
 import com.example.nickolas.vk.widgets.listners.EndlessRecyclerViewScrollListener;
-import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
 import com.vk.sdk.api.VKParameters;
@@ -80,7 +79,7 @@ public class DialogFragment extends Fragment implements DialogsView {
         recyclerView.setAdapter(dialogListAdapter);
         final VKRequest request = VKApi.messages().getDialogs(VKParameters.from(VKApiConst.COUNT, 15));
         Toast.makeText(getActivity(), request.toString(), Toast.LENGTH_SHORT).show();
-        presenter.getDialogs(offset, VKSdk.getAccessToken().accessToken);
+        presenter.getDialogs(offset);
         return v;
     }
 

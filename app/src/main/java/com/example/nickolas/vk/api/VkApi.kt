@@ -1,5 +1,6 @@
 package com.example.nickolas.vk.api
 
+import com.vk.sdk.VKSdk
 import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,8 +18,8 @@ interface VkApi {
 
     @GET("messages.getDialogs")
     fun getDialogs(@Query("offset") offset: Int
-                   , @Query("access_token") token: String
-                   , @Query("v") version: String = "5.68    ")
+                   , @Query("access_token") token: String = VKSdk.getAccessToken().accessToken
+                   , @Query("v") version: String = "5.68")
             : Observable<ResponseBody>
 
     @GET("users.get")
