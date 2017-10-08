@@ -27,4 +27,10 @@ interface VkApi {
                  , @Query("fields") fields: String = "photo_50, photo_400_orig ,online")
             : Observable<ResponseBody>
 
+    @GET("messages.getHistory")
+    fun getHistory(@Query("offset") offset: Int
+                   , @Query("peer_id") id: Int
+                   , @Query("access_token") token: String = VKSdk.getAccessToken().accessToken)
+            : Observable<ResponseBody>
+
 }

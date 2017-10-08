@@ -1,6 +1,7 @@
 package com.example.nickolas.vk.di.component;
 
 
+import com.example.nickolas.vk.activities.DialogActivity;
 import com.example.nickolas.vk.di.module.PresentersModule;
 import com.example.nickolas.vk.di.scopes.Scope;
 import com.example.nickolas.vk.di.scopes.Scopes;
@@ -20,5 +21,7 @@ public interface PresentersComponent {
 //    void inject(FeedFragment feedFragment);
 
     void inject(DialogFragment dialogFragment);
+
+    void inject(DialogActivity dialogActivity);
 
 }

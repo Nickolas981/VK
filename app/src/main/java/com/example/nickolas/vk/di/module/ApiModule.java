@@ -2,7 +2,9 @@ package com.example.nickolas.vk.di.module;
 
 import com.example.nickolas.vk.Constants;
 import com.example.nickolas.vk.api.VkApi;
+import com.example.nickolas.vk.models.remote.DialogDataSource;
 import com.example.nickolas.vk.models.remote.DialogsDataSource;
+import com.example.nickolas.vk.models.remote.IDialogDataSource;
 import com.example.nickolas.vk.models.remote.IDialogsDataSource;
 
 import javax.inject.Singleton;
@@ -32,6 +34,12 @@ public class ApiModule {
     @Singleton
     public IDialogsDataSource provideDialogsDataSource(Retrofit retrofit){
         return new DialogsDataSource(retrofit.create(VkApi.class));
+    }
+
+    @Provides
+    @Singleton
+    public IDialogDataSource provideDialogDataSource(Retrofit retrofit) {
+        return new DialogDataSource(retrofit.create(VkApi.class));
     }
 
 }
