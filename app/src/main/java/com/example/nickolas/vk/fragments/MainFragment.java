@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
         navigationView.setOnNavigationItemSelectedListener(listner);
-        navigationView.setSelectedItemId(R.id.navigation_music);
+        navigationView.setSelectedItemId(R.id.navigation_messages);
         return view;
     }
 

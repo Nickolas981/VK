@@ -1,6 +1,7 @@
 package com.example.nickolas.vk.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +37,7 @@ public class DialogActivity extends AppCompatActivity implements DialogView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Slidr.attach(this);
-        setContentView(R.layout.activity_dialog_ativity);
+        setContentView(R.layout.activity_dialog);
         DaggerPresentersComponent.builder()
                 .appComponent(getAppComponent())
                 .presentersModule(new PresentersModule())
@@ -47,6 +48,8 @@ public class DialogActivity extends AppCompatActivity implements DialogView {
     @Override
     protected void onStart() {
         super.onStart();
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id", 0);
 
     }
 

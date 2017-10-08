@@ -3,7 +3,6 @@
     android:id="@+id/dialog_recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#436"
     tools:context="com.example.nickolas.vk.fragments.DialogFragment">
 
 </android.support.v7.widget.RecyclerView>

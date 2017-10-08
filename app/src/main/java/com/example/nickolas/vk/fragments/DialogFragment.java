@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.nickolas.vk.App;
 import com.example.nickolas.vk.R;
@@ -21,10 +20,6 @@ import com.example.nickolas.vk.presenters.DialogsPresenter;
 import com.example.nickolas.vk.views.DialogsView;
 import com.example.nickolas.vk.widgets.adapters.DialogListAdapter;
 import com.example.nickolas.vk.widgets.listners.EndlessRecyclerViewScrollListener;
-import com.vk.sdk.api.VKApi;
-import com.vk.sdk.api.VKApiConst;
-import com.vk.sdk.api.VKParameters;
-import com.vk.sdk.api.VKRequest;
 
 import java.util.List;
 
@@ -77,8 +72,6 @@ public class DialogFragment extends Fragment implements DialogsView {
 
         dialogListAdapter = new DialogListAdapter(v.getContext());
         recyclerView.setAdapter(dialogListAdapter);
-        final VKRequest request = VKApi.messages().getDialogs(VKParameters.from(VKApiConst.COUNT, 15));
-        Toast.makeText(getActivity(), request.toString(), Toast.LENGTH_SHORT).show();
         presenter.getDialogs(offset);
         return v;
     }
