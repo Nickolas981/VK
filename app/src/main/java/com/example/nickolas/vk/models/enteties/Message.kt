@@ -11,7 +11,7 @@ class Message {
     var id: Int? = null
     @SerializedName("date")
     @Expose
-    var date: Int? = null
+    var date: Long? = null
     @SerializedName("out")
     @Expose
     var out: Int? = null
