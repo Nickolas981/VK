@@ -1,6 +1,7 @@
 package com.example.nickolas.vk.utils;
 
 import com.example.nickolas.vk.models.enteties.Dialog;
+import com.example.nickolas.vk.models.enteties.Message;
 import com.example.nickolas.vk.models.enteties.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -46,6 +47,18 @@ public class ResponseToObjectUtil {
         }.getType();
         users = new Gson().fromJson(r, listType);
         return users;
+    }
+
+    public static List<Message> parseToMessageList(ResponseBody response) throws IOException {
+        String res = response.string();
+        List<Message> messages;
+        JsonParser parser = new JsonParser();
+        JsonArray r = parser.parse(res).getAsJsonObject()
+                .getAsJsonObject("response").getAsJsonArray("items");
+        Type listType = new TypeToken<List<Message>>() {
+        }.getType();
+        messages = new Gson().fromJson(r, listType);
+        return messages;
     }
 
 }
